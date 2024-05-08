@@ -11,14 +11,9 @@ export function getTweets(req, res) {
 
 export async function postTweets(req, res) {
     try {
-        const dataUpdated = data["tweets"]
-        
-        dataUpdated.push(req.body);
-
-        console.log(dataUpdated);
-        res.status(201).json(dataUpdated);
-
-
+      let id = Math.round(Math.random() * 100000).toString();
+      data["tweets"].push({ id, ...req.body });
+      res.json({ id, ...req.body });
     } catch (error) {
       res.status(500).json({ message: 'Erreur lors de la création de la publication' });
     }
