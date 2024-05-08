@@ -3,9 +3,11 @@ import cors from "cors";
 import currentUserRoute from "./routes/currentUser.routes.js";
 import tweetsRoute from "./routes/tweets.routes.js";
 import followRoute from "./routes/follow.routes.js";
+import dotenv from "dotenv";
 
-const PORT = 5000
 
+dotenv.config();
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 app.use(express.json());
